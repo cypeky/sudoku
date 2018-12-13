@@ -135,4 +135,4 @@ def fillGrid():
 
 fillGrid()
 printGrid()
-input()  # sprawienie by okienko z tablica nie zginelo
+input("Press enter to close the window. ")  # sprawienie by okienko z tablica nie zginelo
