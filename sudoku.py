@@ -14,7 +14,7 @@ def printGrid():
         i+=1
 
 
-def isNumPossible(row, col, randomNumber):
+def isNumPossible(row, col, randomNumber):          # sprawdzanie czy wylosowana liczba moze byc wstawiona w dane miejsce
     numberIsPossible = 1
     i = 0
     while i < 9:
@@ -23,7 +23,7 @@ def isNumPossible(row, col, randomNumber):
         if grid[i][col] == randomNumber:  # sprawdzanie kolumny
             numberIsPossible = 0
         i += 1
-        if row % 3 == 0:
+        if row % 3 == 0:    #sprawdzanie tego samego pola 3x3
             if col % 3 == 0:
                 if randomNumber == grid[row + 1][col + 1]:
                     numberIsPossible = 0
@@ -110,7 +110,7 @@ def isNumPossible(row, col, randomNumber):
     return numberIsPossible
 
 
-def fillGrid():
+def fillGrid():             #generowanie planszy sudoku
     row = 0
     col = 0
     while row < 9:
@@ -118,7 +118,7 @@ def fillGrid():
             randomNumber = randint(1, 9)
             numberIsPossible = isNumPossible(row,col,randomNumber)
             if numberIsPossible == 0:
-                if numberOfGuesses > 20:
+                if numberOfGuesses > 15: # gdy nie mozna znalezc pasujacej liczby resetuje caly wiersz i zaczyna od nowa
                     z = 0
                     while z < 9:
                         grid[row][z] = "0"
@@ -135,4 +135,4 @@ def fillGrid():
 
 fillGrid()
 printGrid()
-input("Press enter to close the window. ")  # sprawienie by okienko z tablica nie zginelo
+input("Press enter to close the window. ")
